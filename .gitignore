@@ -1,0 +1,42 @@
+# dependencies
+node_modules/
+
+# env files
+.env
+.env.*
+
+# logs
+*.log
+
+# OS files
+.DS_Store
+
+# uploads (agar images store kar raha hai)
+uploads/
+
+
+# 🔹 Dependencies
+node_modules/
+
+# 🔹 Build output
+dist/
+build/
+.next/
+
+# 🔹 Environment variables 🚨
+.env
+.env.*
+
+# 🔹 Logs
+*.log
+
+# 🔹 OS files
+.DS_Store
+Thumbs.db
+
+# 🔹 IDE files
+.vscode/
+.idea/
+
+# 🔹 Cache
+.cache/
