@@ -56,6 +56,11 @@ const Home = () => {
                         variant="outline"
                     />
                     <Button
+                        label="Chat with Admin"
+                        onClick={() => navigate('/chat')}
+                        variant="secondary"
+                    />
+                    <Button
                         label="Sign Up"
                         onClick={() => navigate('/signup')}
                         variant="primary"

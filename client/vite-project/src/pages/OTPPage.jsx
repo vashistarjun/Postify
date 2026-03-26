@@ -63,10 +63,16 @@ const OTPPage = () => {
                     otp,
                     name,
                 });
-                setSuccess('Signup successful! Redirecting to login...');
+                const { token, user } = response.data;
+
+                // Auto-login after successful OTP signup
+                login(token, user, user.role);
+                localStorage.setItem('userId', user.id);
+
+                setSuccess('Signup successful! Redirecting to dashboard...');
                 setTimeout(() => {
-                    navigate('/login');
-                }, 2000);
+                    navigate('/dashboard');
+                }, 1000);
             } else {
                 // Login mode
                 response = await authAPI.verifyOTPLogin({ email, otp });

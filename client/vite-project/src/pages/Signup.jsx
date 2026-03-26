@@ -1,10 +1,12 @@
-import { useState } from 'react';
+import { useState, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { authAPI } from '../services/api';
+import { AuthContext } from '../context/AuthContext';
 import { FormContainer, InputField, Button, ErrorMessage, SuccessMessage } from '../components/Common';
 
 const Signup = () => {
     const navigate = useNavigate();
+    const { login } = useContext(AuthContext);
 
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
@@ -36,11 +38,17 @@ const Signup = () => {
 
         setLoading(true);
         try {
-            await authAPI.signup({ name, email, password });
-            setSuccess('Signup successful! Redirecting to login...');
+            const response = await authAPI.signup({ name, email, password });
+            const { token, user } = response.data;
+
+            // Auto-login after successful signup
+            login(token, user, user.role);
+            localStorage.setItem('userId', user.id);
+
+            setSuccess('Signup successful! Redirecting to dashboard...');
             setTimeout(() => {
-                navigate('/login');
-            }, 2000);
+                navigate('/dashboard');
+            }, 1000);
         } catch (err) {
             setError(err.response?.data?.message || 'Signup failed. Please try again.');
         } finally {

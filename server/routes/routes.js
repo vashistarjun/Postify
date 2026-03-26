@@ -8,6 +8,7 @@ const { createTodo, deleteTodo, updateTodo,
     getTodoById, getAllTodo, approveTodo, rejectTodo } = require('../controller/Todo')
 const { isAdmin } = require('../middleware/isAdmin')
     const {isAuth} =require('../middleware/isAuth')
+    const {getMessage}= require('../controller/chatmessage')
 
 
 
@@ -32,6 +33,7 @@ router.get("/get-all", getAllTodo)            // admin to get all todos
 router.get("/get-todobyId", isAdmin, getTodoById)       //to get todo by id
 router.patch("/approve/:id", isAdmin, approveTodo)      // admin approve todo
 router.patch("/reject/:id", isAdmin, rejectTodo)        // admin reject todo
+router.get("/get-chat/:id",isAuth,getMessage)           // chat between user and admin
 
 
 

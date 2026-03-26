@@ -9,6 +9,7 @@ import OTPPage from './pages/OTPPage';
 import Dashboard from './pages/Dashboard';
 import AdminDashboard from './pages/AdminDashboard';
 import BrowseTodos from './pages/BrowseTodos';
+import Chat from './pages/Chat';
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
       <Route path="/otp-signup" element={<OTPPage />} />
       <Route path="/otp-login" element={<OTPPage />} />
       <Route path="/browse-todos" element={<BrowseTodos />} />
+      <Route path="/chat" element={<Chat />} />
 
       <Route
         path="/dashboard"
