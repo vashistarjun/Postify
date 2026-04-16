@@ -19,7 +19,7 @@ module.exports = (io) => {
                     });
                 }
 
-                chat.messages.push({
+                chat.message.push({
                     sender,
                     text: message
                 });
