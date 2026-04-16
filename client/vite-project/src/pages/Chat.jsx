@@ -3,7 +3,10 @@ import { io } from 'socket.io-client';
 import { AuthContext } from '../context/AuthContext';
 import { Button, LoadingSpinner, ErrorMessage } from '../components/Common';
 
-const socket = io('http://localhost:3000');
+const SOCKET_URL = process.env.NODE_ENV === 'production' 
+  ? 'https://postify-rz67.onrender.com' 
+  : 'http://localhost:3000';
+const socket = io(SOCKET_URL);
 
 const Chat = () => {
     const { user, role, isAuthenticated } = useContext(AuthContext);

@@ -1,7 +1,8 @@
 import axios from 'axios';
 
-const API_URL = 'https://postify-rz67.onrender.com/todo';
-
+const API_URL = process.env.NODE_ENV === 'production'
+  ? 'https://postify-rz67.onrender.com/todo'
+  : 'http://localhost:3000/todo';
 // Create axios instance
 const apiClient = axios.create({
   baseURL: API_URL,

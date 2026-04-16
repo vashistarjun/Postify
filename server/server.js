@@ -23,7 +23,14 @@ const server = http.createServer(app)
 
 const io = new Server(server, {
     cors: {
-        origin:"*"
+        origin: [
+            "http://localhost:5173",
+            "http://localhost:3000",
+            "https://postiiify.vercel.app",
+            "https://postify-rz67.onrender.com"
+        ],
+        methods: ["GET", "POST"],
+        credentials: true
     }
 })
 require("./config/socket")(io);
