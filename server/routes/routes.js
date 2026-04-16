@@ -35,7 +35,9 @@ router.patch("/approve/:id", isAdmin, approveTodo)      // admin approve todo
 router.patch("/reject/:id", isAdmin, rejectTodo)        // admin reject todo
 router.get("/get-chat/:id",isAuth,getMessage)           // chat between user and admin
 
-
-
+router.get("/", (req, res) => {
+    res.send("API is working fine");
+}
+)
 
 module.exports = router;
