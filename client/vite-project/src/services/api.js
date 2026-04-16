@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API_URL = 'http://localhost:3000/todo';
+const API_URL = 'https://postify-rz67.onrender.com/todo';
 
 // Create axios instance
 const apiClient = axios.create({
